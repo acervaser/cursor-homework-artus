@@ -29,6 +29,7 @@ console.log (`Maксимальна ціна: ${maxPrice}
 Мінімальна ціна: ${minPrice}
 Вартість всіх товарів: ${sumPrice}
 Округлена вартість всіх товарів: ${sumPriceInteger}
+Сума всіх товарів є парним числом: ${isOddOrEven}
 Вартість товарів округлена до сотень: ${sumPriseRounded}
 Решта з 500: ${rest}
 Середня ціна: ${average}
