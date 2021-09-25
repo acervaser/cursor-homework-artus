@@ -19,7 +19,7 @@ const average = +(sumPrice /3).toFixed(2);
 
 const someDiscount = Math.round(Math.random()*101) / 100;
 
-const priceWithDiscount = (sumPrice - (sumPrice * someDiscount)).toFixed(2);
+const priceWithDiscount = +(sumPrice - (sumPrice * someDiscount)).toFixed(2);
 
 const cost = sumPriceInteger / 2;
 
