@@ -1,8 +1,8 @@
-let n = parseInt(prompt('Введіть число N:'));
+const n = parseInt(prompt('Введіть число N:'));
 
-let m = parseInt(prompt('Введіть число M:'));
+const m = parseInt(prompt('Введіть число M:'));
 
-let skipEvenNumber = confirm('Чи потрібно пропускати парні числа?');
+const skipEvenNumber = confirm('Чи потрібно пропускати парні числа?');
 
 let sum = 0;
 
