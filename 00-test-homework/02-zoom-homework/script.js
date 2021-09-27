@@ -1,13 +1,15 @@
-const n;
+const n = +prompt('Введіть число N:');
 
 const m;
 
 do{
-    n = +prompt('Введіть число N:');
+    n 
 }while(!Number.isInteger(n));
 
+const m  = +prompt('Введіть число M:')
+
 do{
-    m = +prompt('Введіть число M:');
+    m 
 }while(!Number.isInteger(m) || (m > n));
 
 
