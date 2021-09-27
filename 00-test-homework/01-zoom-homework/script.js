@@ -13,9 +13,11 @@ const sumPriseRounded = 100 * Math.round(sumPriceInteger / 100);
  
 const isOddOrEven = sumPriseRounded % 2 === 0;
 
-const rest = 500 - sumPrice;
+const totalAmountOfMoney = 500;
 
-const average = +(sumPrice /3).toFixed(2);
+const rest = totalAmountOfMoney - sumPrice;
+
+const average = +(sumPrice / 3).toFixed(2);
 
 const someDiscount = Math.round(Math.random()*101) / 100;
 
