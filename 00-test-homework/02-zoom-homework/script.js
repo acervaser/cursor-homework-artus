@@ -1,14 +1,14 @@
-const n = +prompt('Введіть число N:');
+let n;
+let m;
 
 do{
-    n 
+    n = +prompt("Введіть число N");
 }while(!Number.isInteger(n));
 
-const m  = +prompt('Введіть число M:')
-
 do{
-    m 
-}while(!Number.isInteger(m) || (m > n));
+    m = +prompt("Введіть число M");
+}while(!Number.isInteger(m) || (m < n));
+
 
 
 const skipEvenNumber = confirm('Чи потрібно пропускати парні числа?');
