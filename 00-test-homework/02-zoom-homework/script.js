@@ -1,7 +1,5 @@
 const n = +prompt('Введіть число N:');
 
-const m;
-
 do{
     n 
 }while(!Number.isInteger(n));
