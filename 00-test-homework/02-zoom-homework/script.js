@@ -1,6 +1,15 @@
-const n = parseInt(prompt('Введіть число N:'));
+const n;
 
-const m = parseInt(prompt('Введіть число M:'));
+const m;
+
+do{
+    n = +prompt('Введіть число N:');
+}while(!Number.isInteger(n));
+
+do{
+    m = +prompt('Введіть число M:');
+}while(!Number.isInteger(m) || (m > n));
+
 
 const skipEvenNumber = confirm('Чи потрібно пропускати парні числа?');
 
