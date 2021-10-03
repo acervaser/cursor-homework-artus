@@ -68,6 +68,20 @@ const getMaxDigit = (number) => {
         
         };
 
+        /*let stringleter = (letter.toString()).toLowerCase();
+
+          let stringWord = (word.toString()).toLowerCase();
+
+          let sum = 0
+        
+            for (let i = 0; i < stringWord.length; i++) {
+                if (newketer[i] === stringleter) {
+                    sum += 1;
+                }
+            }
+        
+            return sum;*/
+
 console.log(`Функція №1: ${getMaxDigit(1236)}`);
 console.log(`Функція №2(1): ${getPow(2, 6)}`);
 console.log(`Функція №2(2): ${getPow(2, 6)}`);
