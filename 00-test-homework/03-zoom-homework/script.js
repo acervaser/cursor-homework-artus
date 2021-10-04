@@ -97,8 +97,8 @@ const convertCurrency = (currency) => {
 
 //8. Отримання випадкового паролю
 
-const getRandomPassword = (passwordLengtg = "8") => {
-    let password = Math.round(Math.random() * Math.pow(10, passwordLengtg));
+const getRandomPassword = (passwordLength = "8") => {
+    let password = Math.round(Math.random() * Math.pow(10, passwordLength));
     return password;
 };
 
