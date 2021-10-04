@@ -1,12 +1,3 @@
-//1. Найбільша цифра в числі
-
-const getMaxDigit = (number) => {
-    if (number === 0) {
-        return 0;
-    } else {
-        return Math.max(number % 10, getMaxDigit(Math.floor(number / 10)));
-    }
-};
 
 //2. Ступінь числа
 
@@ -151,7 +142,6 @@ const isPalyndrom = (word) => {
 };
 
 
-console.log(`Функція №1: ${getMaxDigit(1236)}`);
 console.log(`Функція №2(1): ${getPow(2, 6)}`);
 console.log(`Функція №2(2): ${getPow(2, 6)}`);
 console.log(`Функція №3: ${changeletter('вЛАД')}`);
