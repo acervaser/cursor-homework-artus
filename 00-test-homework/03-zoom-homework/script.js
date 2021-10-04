@@ -143,11 +143,13 @@ const isPalyndrom = (word) => {
         return true
 
     } else {
+        
         return false
 
     }
 
 };
+
 
 console.log(`Функція №1: ${getMaxDigit(1236)}`);
 console.log(`Функція №2(1): ${getPow(2, 6)}`);
@@ -161,7 +163,7 @@ console.log(`Функція №7:${convertCurrency("100$")}`);
 console.log(`Функція №8:${getRandomPassword()}`);
 console.log(`Функція №9:${deleteLetters("a", "blablabla")}`);
 console.log(`Функція №10:${isPalyndrom("мадам")}`);
-console.log(`Функція №11:${deleteDuplicateLetter ("мадам")}`);
+
 
 
 
