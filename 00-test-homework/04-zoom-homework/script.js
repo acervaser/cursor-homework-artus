@@ -20,6 +20,35 @@ const getPairs = (massive) => {
         pairs.push(((boys[i].split(" ")).concat((girls[i]).split(" "))));
     };
     return pairs
+   /* for (let i = 0; i < boys.length; i++) {
+        pairs.push(boys[i].concat(girls[i]));
+    };
+    return pairs*/
+
+    /* for (let i = 0; i < boys.length; i++) {
+        pairs.push((boys[i].concat(girls[i]).split(" ")));
+    };
+    return pairs*/
+
 
 };
 console.log(getPairs(students));
+
+const getThemes = (themes) => {
+    const studentPairs = [];
+    for (let i = 0; i < themes.length; i++) {
+       
+        studentPairs.push(getPairs(students)[i].join(" і ").split(","));
+    }
+    const studentsThemes = [];
+
+   for (let i = 0; i < themes.length; i++) {
+
+        (studentsThemes.push((((studentPairs[i]).concat((themes[i]).split())))));
+    };
+    return studentsThemes
+}
+
+
+
+console.log(getThemes(themes));
