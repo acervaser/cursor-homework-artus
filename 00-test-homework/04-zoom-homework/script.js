@@ -4,22 +4,29 @@ const themes = ["Диференційне рівняння", "Теорія ав�
 const marks = [4, 5, 5, 3, 4, 5];
 
 const getPairs = (massive) => {
+   
     const boys = [];
     const girls = [];
 
     for (let char of massive) {
         if (char.endsWith("а")) {
+            
             girls.push(char);
+
         } else {
+            
             boys.push(char)
+
         };
 
     };
 
     const pairs = [];
     for (let i = 0; i < boys.length; i++) {
+        
         pairs.push(((boys[i].split(" ")).concat(girls[i].split(" "))));
     };
+    
     return pairs
     /* for (let i = 0; i < boys.length; i++) {
          pairs.push(boys[i].concat(girls[i]));
@@ -37,7 +44,9 @@ console.log(getPairs(students));
 
 // 2 Зіставте пари з попереднього завдання та теми проєктів, над якими студенти будуть працювати. Повинен вийти вкладений масив виду: [["Олександр і Олена", "Теорія автоматів"], [...], [...]]
 const getThemes = (themes) => {
+    
     const studentPairs = [];
+    
     for (let i = 0; i < themes.length; i++) {
 
         studentPairs.push(getPairs(students)[i].join(" і ").split(","));
@@ -48,6 +57,7 @@ const getThemes = (themes) => {
 
         studentsThemes.push((studentPairs[i]).concat(themes[i].split()));
     };
+    
     return studentsThemes
 };
 
@@ -56,11 +66,15 @@ console.log(getThemes(themes));
 // 3 Зіставте оцінки(marks) зі студентом(students): [["Саша", 4], [...], [...]]
 
 const getPoint = (students, marks) => {
+    
     const studentMarks = [];
+    
     for (let i = 0; i < marks.length; i++) {
+        
         studentMarks.push(((students[i].split(" ")).concat(marks[i])));
 
     };
+    
     return studentMarks
 }
 
@@ -69,12 +83,15 @@ console.log(getPoint(students, marks));
 // 4 Поставте кожній парі випадкову оцінку(від 1 до 5) за проєкт
 
 const getProjectMarks = (project) => {
+    
     const projectMarks = [];
+    
     let rand = Math.round(1 + Math.random() * (5 - 1));
     for (let i = 0; i < project.length; i++) {
         projectMarks.push(project[i].concat(rand));
 
     };
+    
     return projectMarks;
 };
 
