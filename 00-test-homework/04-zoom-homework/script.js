@@ -55,13 +55,28 @@ console.log(getThemes(themes));
 
 // 3 Зіставте оцінки(marks) зі студентом(students): [["Саша", 4], [...], [...]]
 
-const getPoint = (students, girls) => {
+const getPoint = (students, marks) => {
     const studentMarks = [];
-    for (let i = 0; i < girls.length; i++) {
-        studentMarks.push(((students[i].split(" ")).concat(girls[i].toString().split(" "))));
+    for (let i = 0; i < marks.length; i++) {
+        studentMarks.push(((students[i].split(" ")).concat(marks[i])));
 
     };
     return studentMarks
 }
 
 console.log(getPoint(students, marks));
+
+// 4 Поставте кожній парі випадкову оцінку(від 1 до 5) за проєкт
+
+const getProjectMarks = (project) => {
+    const projectMarks = [];
+    let rand = Math.round(1 + Math.random() * (5 - 1));
+    for (let i = 0; i < project.length; i++) {
+        projectMarks.push(project[i].concat(rand));
+
+    };
+    return projectMarks;
+};
+
+
+console.log(getProjectMarks(getThemes(themes)));
