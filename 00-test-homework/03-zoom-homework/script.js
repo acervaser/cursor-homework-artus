@@ -2,59 +2,53 @@
 
 //2. Ступінь числа
 
-const getPow = (x, y) => {
+const getPow = (number, pow) => {
     let result = 1;
 
-    for (let i = 0; i < y; i++) {
-        result *= x;
+    for (let i = 0; i < pow; i++) {
+        result *= number;
     }
     return result;
 };
 
 
-const getPow2 = (x1, n2) => {
-    if (n2 === 1) {
-        return x1;
+const getPow2 = (number2, pow2) => {
+    if (number2 === 1) {
+        return pow2;
     } else {
-        return x1 * getPow2(x1, n2 - 1);
+        return pow2 * getPow2(number2, pow2 - 1);
     }
 }
 
 //3. Форматування імені
 
-const changeletter = (name = 'невідомо') => {
-
-    return (name[0]).toUpperCase() + name.toLowerCase().slice(1)
-};
+const formatName = (name = 'невідомо') =>  (name[0]).toUpperCase() + name.toLowerCase().slice(1);
 
 //4. Вирахування залишку 
 
 const remainder = (salary, tax1, tax2) => {
-    let tax1Given = (parseFloat(tax1)) * 0.01;
-    let tax2Given = (parseFloat(tax2)) * 0.01;
+    const tax1Given = (parseFloat(tax1)) * 0.01;
+    const tax2Given = (parseFloat(tax2)) * 0.01;
     return salary - salary * (tax1Given + tax2Given);
 }
 
 //5. Рандомне ціле число від N до M 
 
-const getrandomInteger = (n, m) => {
+const getrandomInteger = (firstNumber, secondNumber) => Math.floor(firstNumber + Math.random() * (secondNumber + 1 - firstNumber));
 
-    let rand = n + Math.random() * (m + 1 - n);
-    return Math.floor(rand);
-}
 
 //6. Підрахунок однакової букви в слові 
 
 const countLetter = (letter, word) => {
-    let stringletter = (letter.toString()).toLowerCase();
+    const stringletter = (letter.toString()).toLowerCase();
 
-    let stringWord = (word.toString()).toLowerCase();
+    const stringWord = (word.toString()).toLowerCase();
 
     let sum = 0
 
     for (let char of stringWord) {
         if (char === stringletter)
-            sum += 1;
+            sum ++;
     };
 
     return sum;
@@ -62,15 +56,15 @@ const countLetter = (letter, word) => {
 };
 
 const countLetter2 = (letter, word) => {
-    let stringletter = (letter.toString()).toLowerCase();
+    const stringletter = (letter.toString()).toLowerCase();
 
-    let stringWord = (word.toString()).toLowerCase();
+    const stringWord = (word.toString()).toLowerCase();
 
     let sum = 0
 
     for (let i = 0; i < stringWord.length; i++) {
         if (stringWord[i] === stringletter) {
-            sum += 1;
+            sum ++;
         };
     };
 
@@ -80,13 +74,13 @@ const countLetter2 = (letter, word) => {
 //7. Конвертування валюти
 
 const convertCurrency = (currency) => {
-
-    if (currency.includes("$")) {
-        let grivna = parseInt(currency) * 25;
+   const coefficient = 25;
+    if (currency.includes("$")) { 
+        const grivna = parseInt(currency) * coefficient;
         return `${grivna}грн`;
 
     } else if (currency.includes("UAH")) {
-        let dollar = parseInt(currency) / 25;
+        const dollar = parseInt(currency) / coefficient;
         return `${dollar}$`;
 
     } else {
@@ -97,17 +91,14 @@ const convertCurrency = (currency) => {
 
 //8. Отримання випадкового паролю
 
-const getRandomPassword = (passwordLength = "8") => {
-    let password = Math.round(Math.random() * Math.pow(10, passwordLength));
-    return password;
-};
+const getRandomPassword = (passwordLength = 8) => Math.round(Math.random() * Math.pow(10, passwordLength));;
 
 //9. Видалення букв
 
 const deleteLetters = (letter, word) => {
-    let stringletter = letter.toString();
+    const stringletter = letter.toString();
 
-    let stringWord = (word.toString());
+    const stringWord = (word.toString());
 
     let newWord = "";
 
@@ -123,7 +114,7 @@ const deleteLetters = (letter, word) => {
 //10. Чи є слово паліндромом ?
 
 const isPalyndrom = (word) => {
-    let stringWord = (word.toString());
+    const stringWord = (word.toString());
 
     let revers = "";
 
@@ -131,21 +122,15 @@ const isPalyndrom = (word) => {
         revers += stringWord[i];
 
     };
-    if (stringWord === revers) {
-        return true
-
-    } else {
-        
-        return false
-
-    }
+    
+        return stringWord === revers;
 
 };
 
 
 console.log(`Функція №2(1): ${getPow(2, 6)}`);
 console.log(`Функція №2(2): ${getPow(2, 6)}`);
-console.log(`Функція №3: ${changeletter('вЛАД')}`);
+console.log(`Функція №3: ${formatName('вЛАД')}`);
 console.log(`Функція №4: ${remainder(1000, "12.5%", "5.6%")}`);
 console.log(`Функція №5: ${getrandomInteger(1, 10)}`);
 console.log(`Функція №6(1): ${countLetter('а', 'Асталавіста')}`);
