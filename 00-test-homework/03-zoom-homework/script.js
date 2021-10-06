@@ -1,5 +1,21 @@
-//1 і 11 задачі не знаю як робити  :(
+//1 
+const getMaxNumber = (number) => {
 
+    const stringNumber = number.toString();
+
+    let maxNumber = 0;
+
+    for (let i = 0; i < stringNumber.length; i++) {
+
+        if (stringNumber[i] > maxNumber) {
+
+            maxNumber = stringNumber[i];
+        };
+    };
+
+    return maxNumber;
+
+};
 //2. Ступінь числа
 
 const getPow = (number, pow) => {
@@ -22,7 +38,7 @@ const getPow2 = (number2, pow2) => {
 
 //3. Форматування імені
 
-const formatName = (name = 'невідомо') =>  (name[0]).toUpperCase() + name.toLowerCase().slice(1);
+const formatName = (name = 'невідомо') => (name[0]).toUpperCase() + name.toLowerCase().slice(1);
 
 //4. Вирахування залишку 
 
@@ -48,7 +64,7 @@ const countLetter = (letter, word) => {
 
     for (let char of stringWord) {
         if (char === stringletter)
-            sum ++;
+            sum++;
     };
 
     return sum;
@@ -64,7 +80,7 @@ const countLetter2 = (letter, word) => {
 
     for (let i = 0; i < stringWord.length; i++) {
         if (stringWord[i] === stringletter) {
-            sum ++;
+            sum++;
         };
     };
 
@@ -74,8 +90,8 @@ const countLetter2 = (letter, word) => {
 //7. Конвертування валюти
 
 const convertCurrency = (currency) => {
-   const coefficient = 25;
-    if (currency.includes("$")) { 
+    const coefficient = 25;
+    if (currency.includes("$")) {
         const grivna = parseInt(currency) * coefficient;
         return `${grivna}грн`;
 
@@ -122,12 +138,32 @@ const isPalyndrom = (word) => {
         revers += stringWord[i];
 
     };
-    
-        return stringWord === revers;
+
+    return stringWord === revers;
 
 };
 
 
+const deleteDuplicateLetter = (word) => {
+    const stringWord = word.replaceAll(' ','').toLowerCase();
+
+    let newWord = "";
+
+    for (let i = 0; i < stringWord.length; i++) {
+        
+        if(stringWord.indexOf(stringWord[i]) === stringWord.lastIndexOf(stringWord[i])){
+            
+            newWord += stringWord[i];
+        }
+
+    };
+
+    return newWord
+
+};
+
+
+console.log(`Функція №1: ${getMaxNumber(158)}`);
 console.log(`Функція №2(1): ${getPow(2, 6)}`);
 console.log(`Функція №2(2): ${getPow(2, 6)}`);
 console.log(`Функція №3: ${formatName('вЛАД')}`);
@@ -139,6 +175,7 @@ console.log(`Функція №7:${convertCurrency("100$")}`);
 console.log(`Функція №8:${getRandomPassword()}`);
 console.log(`Функція №9:${deleteLetters("a", "blablabla")}`);
 console.log(`Функція №10:${isPalyndrom("мадам")}`);
+console.log(`Функція №11:${deleteDuplicateLetter("мадам")}`);
 
 
 
