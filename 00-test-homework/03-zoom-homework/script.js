@@ -29,10 +29,10 @@ const getPow = (number, pow) => {
 
 
 const getPow2 = (number2, pow2) => {
-    if (number2 === 1) {
-        return pow2;
+    if ( pow2 === 1) {
+        return number2 ;
     } else {
-        return pow2 * getPow2(number2, pow2 - 1);
+        return number2 * getPow2(number2, pow2 - 1);
     }
 }
 
@@ -165,7 +165,7 @@ const deleteDuplicateLetter = (word) => {
 
 console.log(`Функція №1: ${getMaxNumber(158)}`);
 console.log(`Функція №2(1): ${getPow(2, 6)}`);
-console.log(`Функція №2(2): ${getPow(2, 6)}`);
+console.log(`Функція №2(2): ${getPow2(2, 6)}`);
 console.log(`Функція №3: ${formatName('вЛАД')}`);
 console.log(`Функція №4: ${remainder(1000, "12.5%", "5.6%")}`);
 console.log(`Функція №5: ${getrandomInteger(1, 10)}`);
