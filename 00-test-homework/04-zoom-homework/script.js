@@ -3,12 +3,12 @@ const students = ["Олександр", "Ігор", "Олена", "Іра", "О�
 const themes = ["Диференційне рівняння", "Теорія автоматів", "Алгоритми і структури даних"];
 const marks = [4, 5, 5, 3, 4, 5];
 
-const getPairs = (massive) => {
+const getPairs = (students) => {
    
     const boys = [];
     const girls = [];
 
-    for (let char of massive) {
+    for (let char of students) {
         if (char.endsWith("а")) {
             
             girls.push(char);
