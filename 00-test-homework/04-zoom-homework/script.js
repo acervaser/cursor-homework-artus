@@ -90,13 +90,13 @@ const getProjectMarks = (project) => {
     }
 
     const projectMarks = [];
-    
-for (let i = 0; i < project.length; i++) {
-    projectMarks.push(project[i].concat(marksRandom[i]));
 
-};
+    for (let i = 0; i < project.length; i++) {
+        projectMarks.push(project[i].concat(marksRandom[i]));
 
-return projectMarks;
+    };
+
+    return projectMarks;
 };
 
 
