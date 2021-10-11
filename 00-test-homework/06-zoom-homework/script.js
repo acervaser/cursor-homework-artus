@@ -7,8 +7,6 @@ const getRandomArray = (length, min, max) => {
 };
 
 
-console.log(getRandomArray(100, 1, 10));
-
 // 2 Створіть функцію getRandomArray(length, min, max) – яка повертає масив випадкових цілих чисел. 
 
 
@@ -27,14 +25,11 @@ const getAverage = (...numbers) => {
     }
     return sum / numbersArray.length
 };
-console.log(getAverage(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2, 12.6));
-
 
 // 5 Створіть функцію filterEvenNumbers(...numbers) – яка фільтрує парні числа передані як аргументи функції
 
 const filterEvenNumbers = (...numbers) => numbers.filter(numbers => numbers % 2 === 0);
 
-console.log(filterEvenNumbers(1, 2, 3, 4));
 
 // 6 Створіть функцію countPositiveNumbers(...numbers) – яка порахує кількість чисел більших 0
 
@@ -49,7 +44,6 @@ console.log(countPositiveNumbers(1, -2, 3, -4, -5, 6));
 
 const getDividedByFive = (...numbers) => numbers.filter(numbers => numbers % 5 === 0);
 
-console.log(getDividedByFive(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2));
 
 // 8 розіб'є фразу на слова, 2) замінить погані слова на зірочки (*).
 const replaceBadWords = (string, badWords = "fuck, shit", otherBadWords = "") => {
@@ -61,7 +55,6 @@ const replaceBadWords = (string, badWords = "fuck, shit", otherBadWords = "") =>
     }
     return newStr
 };
-console.log(replaceBadWords("Are you fucking asshole shit ?", "fuck, shit", "ass"));
 
 // 9 творіть функцію divideByThree(word), яка розбиває кожне слово на умовні склади по 3 букви. Якщо букв менше трьох – не розбиває. 
 const divideByThree = (string) => {
@@ -79,9 +72,9 @@ const divideByThree = (string) => {
     return arr;
 };
 
-console.log(divideByThree("Live"));
 
 //10 Створіть функцію generateCombinations(word), яка видасть всі можливі перестановки(унікальні, без повторень) букв в слові.
+//десь є помилка бо працює не зовсім так як треба
 const generateCombinations = (word) => {
     let arr = word.toLowerCase().split("");
     const  combinations = [];
@@ -93,20 +86,39 @@ const generateCombinations = (word) => {
         }
     }
 
-    for (let i = arr.length -1; i > 0; i--) {
+    /*for (let i = arr.length -1; i > 0; i--) {
         let j = Math.floor(Math.random() * (i + 1));
         let t = arr[i];
         arr[i] = arr[j];
         arr[j] = t
       
-    }
-    let randomArr = arr.join('')
+    }*/
+    let randomArr = ""
     for (let k = 0; k < toCounCombinations(word.length); k++) {
-        if (!combinations.includes(randomArr))
-        combinations.push(randomArr);
+        for (let i = arr.length -1; i > 0; i--) {
+            let j = Math.floor(Math.random() * (i + 1));
+            let t = arr[i];
+            arr[i] = arr[j];
+            arr[j] = t
+            randomArr = arr.join('')
     }
-     return  combinations
+    if(combinations.includes(randomArr)){
+    combinations.push(randomArr);
     }
+    }
+    return  combinations
+}
    
 
 console.log(generateCombinations("man")) 
+
+console.log(`Функція №1: ${getRandomArray(100, 1, 10)}`);
+//console.log(`Функція №2: ${}`);
+console.log(`Функція №3: ${getAverage(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2, 12.6)}`);
+//console.log(`Функція №4: ${}`);
+console.log(`Функція №5: ${filterEvenNumbers(1, 2, 3, 4)}`);
+console.log(`Функція №6: ${countPositiveNumbers(1, -2, 3, -4, -5, 6)}`);
+console.log(`Функція №7:${getDividedByFive(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2)}`);
+console.log(`Функція №8:${replaceBadWords("Are you fucking asshole shit ?", "fuck, shit", "ass")}`);
+console.log(`Функція №9:${divideByThree("Live")}`);
+console.log(`Функція №10:${generateCombinations("man")}`);
