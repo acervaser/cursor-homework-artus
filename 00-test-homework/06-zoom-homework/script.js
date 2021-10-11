@@ -102,7 +102,7 @@ const generateCombinations = (word) => {
             arr[j] = t
             randomArr = arr.join('')
     }
-    if(combinations.includes(randomArr)){
+    if(!combinations.includes(randomArr)){
     combinations.push(randomArr);
     }
     }
