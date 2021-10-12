@@ -105,7 +105,7 @@ const divideByThree = (string) => {
 
 //10 Створіть функцію generateCombinations(word), яка видасть всі можливі перестановки(унікальні, без повторень) букв в слові.
 //десь є помилка бо працює не зовсім так як треба
-const generateCombinations = (word) => {
+/*const generateCombinations = (word) => {
     let arr = word.toLowerCase().split("");
     const combinations = [];
     const toCounCombinations = (number) => {
@@ -115,13 +115,6 @@ const generateCombinations = (word) => {
             return number * toCounCombinations(number - 1);
         }
     }
-
-    /*for (let i = arr.length -1; i > 0; i--) {
-        let j = Math.floor(Math.random() * (i + 1));
-        let t = arr[i];
-        arr[i] = arr[j];
-        arr[j] = t*/
-      
 
     let randomArr = ""
     for (let k = 1; k < toCounCombinations(word.length); k++) {
@@ -142,40 +135,15 @@ const generateCombinations = (word) => {
     
 
     return combinations
-}
-const generateCombinations2 = (string) =>{
-    if(!string || typeof string !== "string"){
-    return "Pleace enter a string"
-    };
+}*/
 
-    if(!string.length && string.length < 2){
-        return string
-    }
 
-    let permutationsArray = [] 
-
-    for (let i = 0; i < string.length; i++){
-        let char = string[i]
-        
-        if (string.indexOf(char) !== i){
-        continue
-        };
-
-        let remainder = string.slice(0, i) + string.slice(i + 1, string.length)
-
-        for (let permutation of generateCombinations(remainder)){
-          permutationsArray.push(char + permutation) }
-      }
-      return permutationsArray
-     
-};
-
-let findPermutations = (string) => {
+const generateCombinations = (string) => {
     if (!string || typeof string !== "string"){
       return "Please enter a string"
     }
   
-    if (!!string.length && string.length < 2 ){
+    if (/*!!string.length &&*/ string.length < 2 ){
       return string
     }
   
@@ -184,16 +152,16 @@ let findPermutations = (string) => {
     for (let i = 0; i < string.length; i++){
       let char = string[i]
   
-      if (string.indexOf(char) != i)
-      continue
+      /*if (string.indexOf(char) != i)
+      continue*/
   
       let remainder = string.slice(0, i) + string.slice(i + 1, string.length)
   
-      for (let permutation of findPermutations(remainder)){
+      for (let permutation of generateCombinations(remainder)){
         permutationsArray.push(char + permutation) }
     }
     return permutationsArray
-  }
+  };
 
 console.log(`Функція №1: ${getRandomArray(100, 1, 10)}`);
 console.log(`Функція №2: ${getModa(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2)}`);
@@ -204,5 +172,5 @@ console.log(`Функція №6: ${countPositiveNumbers(1, -2, 3, -4, -5, 6)}`)
 console.log(`Функція №7:${getDividedByFive(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2)}`);
 console.log(`Функція №8:${replaceBadWords("Are you fucking asshole shit ?", "fuck, shit", "ass")}`);
 console.log(`Функція №9:${divideByThree("Live")}`);
-console.log(`Функція №10:${generateCombinations("man")}`);
-console.log(`Функція №10:${generateCombinations2("man")}`);
+//console.log(`Функція №10:${generateCombinations("man")}`);
+console.log(`Функція №10:${findPermutations("man")}`);
