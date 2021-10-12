@@ -9,22 +9,52 @@ const getRandomArray = (length, min, max) => {
 
 // 2 Створіть функцію getRandomArray(length, min, max) – яка повертає масив випадкових цілих чисел. 
 
+const getModa = (...numbers) => {
+    if (numbers.length === 1) {
+        return numbers[0]
+    }
+    const numberFrequency = numbers.reduce((acc, number) => {
+        if (acc[number]) {
+            acc[number]++
+        } else {
+            acc[number] = 1
+        }
+        return acc
+    }, {})
 
+    const maxFrequency = Math.max(...Object.values(numberFrequency))
+    const frequency = Object.entries(numberFrequency)
+    const modArr = (frequency).filter(frequency => frequency[1] === maxFrequency)
 
+    return modArr
+};
+
+console.log(getModa(6, 2, 55, 11, 78, 2, 55, 55, 55, 77, 57, 87, 23, 2, 56, 3, 2))
 
 // 3 Створіть функцію getAverage(...numbers) – яка рахує середнє арифметичне всіх переданих в неї аргументів.
 const getAverage = (...numbers) => {
     let numbersArray = []
     let sum = 0
     for (let i = 0; i < numbers.length; i++) {
-        if(!Number.isInteger(numbers[i])){
-           continue
+        if (!Number.isInteger(numbers[i])) {
+            continue
         }
         numbersArray.push(numbers[i]);
         sum += numbersArray[i]
     }
     return sum / numbersArray.length
 };
+// 4 Створіть функцію getMedian(...numbers) – яка рахує медіану всіх переданих в неї аргументів.
+const getMedian = (...numbers) => {
+    if (numbers.length % 2 !== 0) {
+        return numbers[Math.floor(numbers.length / 2)]
+    } else {
+        const secondAvarageNumber = numbers[(numbers.length / 2)];
+        const firstAvarageNumber = numbers[(numbers.length / 2) - 1]
+        return Math.floor((secondAvarageNumber + firstAvarageNumber) / 2)
+    };
+};
+
 
 // 5 Створіть функцію filterEvenNumbers(...numbers) – яка фільтрує парні числа передані як аргументи функції
 
@@ -51,7 +81,7 @@ const replaceBadWords = (string, badWords = "fuck, shit", otherBadWords = "") =>
     let newStr = string;
 
     for (let i = 0; i < veryBadWords.length; i++) {
-        newStr = newStr.split(veryBadWords[i]).join('*');
+        newStr = newStr.split(veryBadWords[i]).join('****');
     }
     return newStr
 };
@@ -77,10 +107,10 @@ const divideByThree = (string) => {
 //десь є помилка бо працює не зовсім так як треба
 const generateCombinations = (word) => {
     let arr = word.toLowerCase().split("");
-    const  combinations = [];
-    const toCounCombinations =(number)=>{
-        if ( number ===  1) {
-            return number ;
+    const combinations = [];
+    const toCounCombinations = (number) => {
+        if (number === 1) {
+            return number;
         } else {
             return number * toCounCombinations(number - 1);
         }
@@ -90,35 +120,89 @@ const generateCombinations = (word) => {
         let j = Math.floor(Math.random() * (i + 1));
         let t = arr[i];
         arr[i] = arr[j];
-        arr[j] = t
+        arr[j] = t*/
       
-    }*/
+
     let randomArr = ""
-    for (let k = 0; k < toCounCombinations(word.length); k++) {
-        for (let i = arr.length -1; i > 0; i--) {
+    for (let k = 1; k < toCounCombinations(word.length); k++) {
+        for (let i = arr.length - 1; i > 0; i--) {
             let j = Math.floor(Math.random() * (i + 1));
             let t = arr[i];
             arr[i] = arr[j];
             arr[j] = t
             randomArr = arr.join('')
-    }
-    if(!combinations.includes(randomArr)){
-    combinations.push(randomArr);
-    }
-    }
-    return  combinations
-}
-   
+        }
+        if (combinations.indexOf(combinations[k]) === combinations.lastIndexOf(combinations[k])) {
+            combinations.push(randomArr);
+        }else{
+            continue
+        }
 
-console.log(generateCombinations("man")) 
+    }
+    
+
+    return combinations
+}
+const generateCombinations2 = (string) =>{
+    if(!string || typeof string !== "string"){
+    return "Pleace enter a string"
+    };
+
+    if(!string.length && string.length < 2){
+        return string
+    }
+
+    let permutationsArray = [] 
+
+    for (let i = 0; i < string.length; i++){
+        let char = string[i]
+        
+        if (string.indexOf(char) !== i){
+        continue
+        };
+
+        let remainder = string.slice(0, i) + string.slice(i + 1, string.length)
+
+        for (let permutation of generateCombinations(remainder)){
+          permutationsArray.push(char + permutation) }
+      }
+      return permutationsArray
+     
+};
+
+let findPermutations = (string) => {
+    if (!string || typeof string !== "string"){
+      return "Please enter a string"
+    }
+  
+    if (!!string.length && string.length < 2 ){
+      return string
+    }
+  
+    let permutationsArray = [] 
+     
+    for (let i = 0; i < string.length; i++){
+      let char = string[i]
+  
+      if (string.indexOf(char) != i)
+      continue
+  
+      let remainder = string.slice(0, i) + string.slice(i + 1, string.length)
+  
+      for (let permutation of findPermutations(remainder)){
+        permutationsArray.push(char + permutation) }
+    }
+    return permutationsArray
+  }
 
 console.log(`Функція №1: ${getRandomArray(100, 1, 10)}`);
-//console.log(`Функція №2: ${}`);
+console.log(`Функція №2: ${getModa(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2)}`);
 console.log(`Функція №3: ${getAverage(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2, 12.6)}`);
-//console.log(`Функція №4: ${}`);
+console.log(`Функція №4: ${getMedian(1, 2, 3, 4)}`);
 console.log(`Функція №5: ${filterEvenNumbers(1, 2, 3, 4)}`);
 console.log(`Функція №6: ${countPositiveNumbers(1, -2, 3, -4, -5, 6)}`);
 console.log(`Функція №7:${getDividedByFive(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2)}`);
 console.log(`Функція №8:${replaceBadWords("Are you fucking asshole shit ?", "fuck, shit", "ass")}`);
 console.log(`Функція №9:${divideByThree("Live")}`);
 console.log(`Функція №10:${generateCombinations("man")}`);
+console.log(`Функція №10:${generateCombinations2("man")}`);
