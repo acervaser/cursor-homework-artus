@@ -6,7 +6,7 @@ const getRandomArray = (length, min, max) => {
 
 };
 
-// 2 Створіть функцію getRandomArray(length, min, max) – яка повертає масив випадкових цілих чисел. 
+// 2 Створіть функцію getModa(...numbers) –  яка вираховує моду всіх переданих в неї аргументів. 
 
 const getModa = (...numbers) => {
     if (numbers.length === 1) {
@@ -101,22 +101,22 @@ const divideByThree = (string) => {
 
 //10 Створіть функцію generateCombinations(word), яка видасть всі можливі перестановки(унікальні, без повторень) букв в слові.
 
-const generateCombinations = (string) => {
-    if (!string || typeof string !== "string"){
+const generateCombinations = (word) => {
+    if (!word || typeof word !== "string"){
       return "Please enter a string"
     }
   
-    if (string.length < 2 ){
-      return string
+    if (word.length < 2 ){
+      return word
     }
   
     const permutationsArray = [] 
      
-    for (let i = 0; i < string.length; i++){
-      let char = string[i]
+    for (let i = 0; i < word.length; i++){
+      let char = word[i]
   
      
-      let remainder = string.slice(0, i) + string.slice(i + 1, string.length)
+      let remainder = word.slice(0, i) + word.slice(i + 1, word.length)
   
       for (let permutation of generateCombinations(remainder)){
         permutationsArray.push(char + permutation) }
