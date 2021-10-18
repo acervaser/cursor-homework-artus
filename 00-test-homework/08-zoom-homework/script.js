@@ -8,23 +8,17 @@ const getMyTaxes = function(salary) {
     return  this.tax * salary;
 };
 
-console.log(getMyTaxes.call(ukraine, 1000));
-
 //2 Створіть функцію getMiddleTaxes.call(country) -> number; – яка рахує скільки у середньому податків платятт IT-спеціалісти у кожній країні. (tax * middleSalary). Функція повинна викликатись через call та працювати з даними через this
 
 const getMiddleTaxes =  function(country) {
    return this.tax * this.middleSalary;
 };
 
-console.log(getMiddleTaxes.call(ukraine));
-
 // 3 Створіть функцію getTotalTaxes.call(country) -> number; – яка рахує, скільки всього податків платять IT-спеціалісти у кожній країні. (tax * middleSalary * vacancies). Функція повинна викликатись через call та працювати з даними через this
 
 const getTotalTaxes = function(country) {
     return this.tax * this.middleSalary * this.vacancies;
 };
-
-console.log(getTotalTaxes.call(ukraine));
 
 // 4 творіть функцію getMySalary(country) – яка буде писати в консоль об'єкт виду: { salary: number, taxes: number, profit: number } кожні 10 секунд.
 const getMySalary = function(country) {
@@ -40,6 +34,7 @@ const getMySalary = function(country) {
 
 };
 
+console.log(getMyTaxes.call(ukraine, 1000));
+console.log(getMiddleTaxes.call(ukraine));
+console.log(getTotalTaxes.call(ukraine));
 console.log(getMySalary.call(ukraine));
-
-
