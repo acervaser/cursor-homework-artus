@@ -37,7 +37,7 @@ const getSubjects = function ({ subjects }) {
 
 // 2 Створіть функцію getAverageMark(students[0]) --> 3.79 – яка поверне середню оцінку по усім предметам для переданого студента
 
-const getAverageMarks = function ({ subjects }) {
+const getAverageMark = function ({ subjects }) {
     const arrMarks = Object.values(subjects);
     const flatered = arrMarks.reduce((previousValue, currentValue) => previousValue.concat(currentValue));
     const sum = flatered.reduce((acc, currentValue) => acc + currentValue, 0)
@@ -48,61 +48,28 @@ const getAverageMarks = function ({ subjects }) {
 
 // 3 Створіть функцію getStudentInfo(students[0]) --> { "course": 3, "name": "Tanya", "averageMark": 3.79} – яка повертає інформацію загального виду по переданому студенту
 
-const getStudentInfo = function getStudentInfo({ name, course, subjects }) {
-    return (`"course": ${course}, "name": ${name}, "averageMark":${getAverageMarks({ subjects })}`)
+const getStudentInfo = function getStudentInfo(student) {
+    return Object.assign({name: student.name, course: student.course, averageMark: getAverageMark(student)});
 };
 
 
 // 4 Створіть функцію getStudentsNames(students) --> ["Anton", "Tanya, "Victor"] – яка повертає імена студентів у алфавітному порядку.
 
-const getStudentsNames = function (students) {
-    const getStudentsNamesPrevious = function ({ name }) {
-        return arrName = Object.values(name).join("");
-    };
-    const natureName = [];
-    for (let i = 0; i < students.length; i++) {
-
-        natureName.push(getStudentsNamesPrevious(students[i]));
-    };
-    const sortName = natureName.sort()
-    return sortName
+const getStudentsNames = function (students) { 
+    return students.map(student => student.name).sort()  
 };
 
 
 //5 Створіть функцію getBestStudent(students) --> "Anton" – яка повертає кращого студента зі списку по показнику середньої оцінки.
 
 const getBestStudent = function (students) {
-    const getStudentsNamesPrevious = function ({ name }) {
-        return arrName = Object.values(name).join("");
-    };
-    const arrMarks = []
-    for (let i = 0; i < students.length; i++) {
-        arrMarks.push(((getAverageMarks(students[i]))))
-
-    };
-    let maxMarks = 0;
-
-    for (let i = 0; i < arrMarks.length; i++) {
-
-        if (arrMarks[i] > maxMarks) {
-
-            maxMarks = (arrMarks[i]);
-        };
-    };
-    let bestStudent = ""
-    for (let i = 0; i < students.length; i++) {
-        let mark = getAverageMarks(students[i])
-        if (mark === maxMarks) {
-            bestStudent = (getStudentsNamesPrevious(students[i]))
-        }
-    };
-    return bestStudent
+    return students.reduce((curr, prev) => getAverageMark(curr) > getAverageMark(prev) ? curr : prev ).name
 };
 
 // 6 Створіть функцію calculateWordLetters("тест") --> { "т": 2, "е": 1, "с": 1 } – яка повертає обє'кт, в якому ключі це букви у слові, а значення – кількість їх повторень.
 
 const calculateWordLetters = (word) => {
-  
+
     const letterFrequency = word.split('').reduce((acc, letter) => {
         if (acc[letter]) {
             acc[letter]++
@@ -111,18 +78,13 @@ const calculateWordLetters = (word) => {
         }
         return acc
     }, {})
-    const frequency = Object.entries(letterFrequency)
-    const arrFrequency = []
-    for (let i = 0; i < frequency.length; i++) {
-        arrFrequency.push(frequency[i].join(":"))
-    }
-    return arrFrequency
+    return letterFrequency
 };
 
 
-console.log(`Функція №1: ${getSubjects(students[0])}`);
-console.log(`Функція №2: ${getAverageMarks(students[0])}`);
-console.log(`Функція №3: ${getStudentInfo(students[0])}`);
-console.log(`Функція №4: ${getStudentsNames(students)}`);
-console.log(`Функція №5: ${getBestStudent(students)}`);
-console.log(`Функція №6: ${calculateWordLetters("тест")}`);
+console.log(getSubjects(students[0]));
+console.log(getAverageMark(students[0]));
+console.log(getStudentInfo(students[0]));
+console.log(getStudentsNames(students));
+console.log(getBestStudent(students));
+console.log(calculateWordLetters("тест"));
