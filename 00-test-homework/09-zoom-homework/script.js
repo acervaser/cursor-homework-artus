@@ -33,13 +33,13 @@ class Student {
         return this.isExpelled ? null : this.marks.reduce((sum, currentValue) => sum + currentValue, 0) / this.marks.length
     };
     dismissStudent() {
-         this.isExpelled = true
-         return "Відрахувати студента"
+        this.isExpelled = true
+        return "Відрахувати студента"
     };
 
     recoverStudent() {
-         this.isExpelled = false
-         return "Поновити студента"
+        this.isExpelled = false
+        return "Поновити студента"
     };
 
 };
@@ -52,7 +52,7 @@ class BudgetStudent extends Student {
     constructor(university, course, fullName) {
         super(university, course, fullName)
         const salute = setInterval(() => this.getScholarship(), 30000);
-        setTimeout(() => { clearInterval(salute) }, 300000)
+        setTimeout(() => { clearInterval(salute) }, 30000)
     }
     getScholarship() {
         if (this.isExpelled === false && this.getAverageMark >= 4) {
