@@ -25,16 +25,17 @@ const getMySalary = function (country) {
 
     const getRandomSalary = (minSalary = 1500, maxSalary = 2000) => Math.floor(minSalary + Math.random()
         * (maxSalary + 1 - minSalary));
+    const taxes =  +(getRandomSalary() * this.tax).toFixed(2);
 
-    const getProfit = () => getRandomSalary() - (this.tax * getRandomSalary());
-    setInterval(() => {
-        console.log(Object.assign({ salary: getRandomSalary(), taxes: this.tax, profit: getProfit() }))
-    }, 10000);
-    return "Please wait"
-
+    const profit = +(getRandomSalary() - taxes).toFixed(2);
+    
+        return Object.assign({ salary: getRandomSalary(), taxes: taxes, profit: profit })
 };
-
+console.log("Функція #1");
 console.log(getMyTaxes.call(ukraine, 1000));
+console.log("Функція #2");
 console.log(getMiddleTaxes.call(ukraine));
+console.log("Функція #3");
 console.log(getTotalTaxes.call(ukraine));
-console.log(getMySalary.call(ukraine));
+console.log("Функція #4");
+setInterval(() => console.log(getMySalary.call(ukraine)), 10000)
