@@ -31,6 +31,7 @@ const getMySalary = function (country) {
     
         return Object.assign({ salary: getRandomSalary(), taxes: taxes, profit: profit })
 };
+
 console.log("Функція #1");
 console.log(getMyTaxes.call(ukraine, 1000));
 console.log("Функція #2");
@@ -38,4 +39,5 @@ console.log(getMiddleTaxes.call(ukraine));
 console.log("Функція #3");
 console.log(getTotalTaxes.call(ukraine));
 console.log("Функція #4");
-setInterval(() => console.log(getMySalary.call(ukraine)), 10000)
+const result = setInterval(() => console.log( getMySalary.call(ukraine)), 10000 );
+setTimeout(() => { clearInterval(result) }, 100000);
