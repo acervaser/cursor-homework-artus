@@ -5,39 +5,96 @@ class Student {
         this.course = course;
         this.fullName = fullName;
         this.marks = [5, 4, 4, 5];
-    }
+        this.isExpelled = false
+    };
     getInfo() {
-        const char = this.fullName.split(" ")
-        if (char[0].endsWith("а")) {
-            return `Студентка ${this.course}го курсу ${this.university} ${this.fullName}`
+        if (this.isExpelled === false) {
+            const char = this.fullName.split(" ")
+            if (char[0].endsWith("а")) {
+                return `Студентка ${this.course}го курсу ${this.university} ${this.fullName}`
+            } else {
+                return `Студент ${this.course}го курсу ${this.university} ${this.fullName}`
+            };
         } else {
-            return `Студент ${this.course}го курсу ${this.university} ${this.fullName}`
+            return "Студент відрахований"
         };
     };
 
+
     get getMarks() {
-        return this.marks
+        return this.isExpelled ? null : this.marks;
     };
 
     set setMarks(mark) {
-        this.marks.push(mark)
+        return this.isExpelled ? null : this.marks.push(mark);
     };
 
-  get  getAverageMark() {
-      return this.marks.reduce((sum, currentValue) => sum + currentValue, 0) / this.marks.length
+    get getAverageMark() {
+        return this.isExpelled ? null : this.marks.reduce((sum, currentValue) => sum + currentValue, 0) / this.marks.length
     };
-dismiss()
+    dismissStudent() {
+         this.isExpelled = true
+         return "Відрахувати студента"
+    };
+
+    recoverStudent() {
+         this.isExpelled = false
+         return "Поновити студента"
+    };
+
 };
 
 const andriy = new Student("ІФНТУНГ", 1, "Андрій Шевченко");
 
 const ira = new Student("ІФНМУ", 2, "Іра Соколова");
 
-const svitlana = new Student("ЧНУ", 3, "Світлана Щербина");
+class BudgetStudent extends Student {
+    constructor(university, course, fullName) {
+        super(university, course, fullName)
+        const salute = setInterval(() => this.getScholarship(), 30000);
+        setTimeout(() => { clearInterval(salute) }, 300000)
+    }
+    getScholarship() {
+        if (this.isExpelled === false && this.getAverageMark >= 4) {
+            console.log('Ви отримали 1400 грн. стипендії');
+        } else {
+            console.log('Старайтеся краще');
+        }
+    };
+};
 
 console.log(ira.getInfo());
+
 console.log(andriy.getMarks);
+
 andriy.setMarks = 5;
+
 console.log(andriy.getMarks);
+
 console.log(andriy.getAverageMark);
+
+console.log(andriy.dismissStudent());
+
+andriy.setMarks = 5;
+
+console.log(andriy.getMarks);
+
+console.log(andriy.recoverStudent());
+
+console.log(andriy.getMarks);
+
+const marta = new BudgetStudent("ІФНМУ", 3, "Марта Вонс");
+
+console.log(marta);
+
+marta.setMarks = 1;
+
+const svitlana = new BudgetStudent("ЧНУ", 3, "Світлана Щербина");
+
+console.log(svitlana);
+
+
+
+
+
 
