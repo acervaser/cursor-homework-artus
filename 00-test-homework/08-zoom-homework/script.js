@@ -33,16 +33,16 @@ const getMySalary = function (country) {
         console.log(Object.assign({ salary: getRandomSalary(), taxes, profit }))
     }, 10000)
 
-    return "Please wait"
+    return "будь ласка зачекайте"
 
 };
 
 console.log("Функція #1");
-console.log(getMyTaxes.call(ukraine, 1000));
+console.log(`Сума податків в Україні ${getMyTaxes.call(ukraine, 1000)}`);
 console.log("Функція #2");
-console.log(getMiddleTaxes.call(ukraine));
+console.log(`Середня сума податків в Україні ${getMiddleTaxes.call(ukraine)}`);
 console.log("Функція #3");
-console.log(getTotalTaxes.call(ukraine));
+console.log(`Загальна сума податків в Україні ${getTotalTaxes.call(ukraine)}`);
 console.log("Функція #4");
-console.log(getMySalary.call(ukraine))
+console.log(`Розраховуєм вашу можливу зарплату після закінчення Сursor education, ${getMySalary.call(ukraine)} :)`)
 
