@@ -22,14 +22,14 @@ const getTotalTaxes = function (country) {
 
 // 4 творіть функцію getMySalary(country) – яка буде писати в консоль об'єкт виду: { salary: number, taxes: number, profit: number } кожні 10 секунд.
 const getMySalary = function (country) {
-       
+    setInterval(() => {
     const getRandomSalary = (minSalary = 1500, maxSalary = 2000) => Math.floor(minSalary + Math.random()
         * (maxSalary + 1 - minSalary));
     const taxes =  +(getRandomSalary() * this.tax).toFixed(2);
 
     const profit = +(getRandomSalary() - taxes).toFixed(2);
+    console.log( Object.assign({ salary: getRandomSalary(), taxes, profit }))},10000)
     
-    setInterval(() =>console.log( Object.assign({ salary: getRandomSalary(), taxes, profit })),10000)
     return "Please wait"
         
 };
