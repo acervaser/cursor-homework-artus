@@ -44,7 +44,7 @@ class Student {
 
 };
 
-const andriy = new Student("ІФНТУНГ", 1, "Андрій Шевченко");
+const andriy = new Student("ІФНТУНГ", 1, "Андрійко ");
 
 const ira = new Student("ІФНМУ", 2, "Іра Соколова");
 

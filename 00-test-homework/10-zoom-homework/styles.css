@@ -1,0 +1,14 @@
+body {
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    display: flex;
+    position: relative;
+}
+
+.block {
+    height: 50px;
+    width: 50px;
+}
