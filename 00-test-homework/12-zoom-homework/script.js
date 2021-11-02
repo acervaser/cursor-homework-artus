@@ -5,9 +5,15 @@ function playSound(code) {
     audio.currentTime = 0;
     audio.play();
     key.classList.add('playing');
+    if(audio === document.querySelector(`audio[data-key ="57"]`)&& key === document.querySelector(`.key[data-key ="57"]`)){
     setTimeout(() => {
         audio.pause()
-    }, 5000);
+    }, 10000);
+}else {
+    setTimeout(() => {
+        audio.pause()
+    }, 6000);
+};
 
 };
 
