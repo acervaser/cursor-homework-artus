@@ -17,6 +17,11 @@ function playSound(code) {
 
 };
 
+function stop() {
+    if (e.propertyName !== "transform") return
+    audio.pause()
+}
+
 function removeTransition(e) {
     if (e.propertyName !== "transform") return
     this.classList.remove("playing");
