@@ -1,15 +1,19 @@
 
 function getRandomChinese(length) {
 let string = ""
-const time = setInterval(() => {
+let promise = new Promise((resolve, reject) => { setInterval(() => {
   const sing = String.fromCharCode(Date.now().toString().slice(-5))
   string += sing 
   if(string.length === length){
-    console.log(string)
+    resolve(string)
     clearInterval(time)
   }
-   }, 50);
-   return "Homework#13"
+   }, 1000);
+})
+  promise.then((data) =>{
+      console.log(data)
+  }) 
 }
-console.log(getRandomChinese(4))
-   
+getRandomChinese(4)
+
+
