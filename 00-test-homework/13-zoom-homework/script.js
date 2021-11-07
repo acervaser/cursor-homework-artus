@@ -6,9 +6,9 @@ let promise = new Promise((resolve, reject) => { setInterval(() => {
   string += sing 
   if(string.length === length){
     resolve(string)
-    clearInterval(time)
+    clearInterval(promise)
   }
-   }, 1000);
+   }, 50);
 })
   promise.then((data) =>{
       console.log(data)

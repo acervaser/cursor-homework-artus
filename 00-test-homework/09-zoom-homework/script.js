@@ -8,7 +8,7 @@ class Student {
         this.isExpelled = false
     };
     getInfo() {
-        if (this.isExpelled === false) {
+        if (!this.isExpelled) {
             const char = this.fullName.split(" ")
             if (char[0].endsWith("а")) {
                 return `Студентка ${this.course}го курсу ${this.university} ${this.fullName}`

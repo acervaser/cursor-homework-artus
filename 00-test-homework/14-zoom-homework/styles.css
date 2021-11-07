@@ -1,0 +1,14 @@
+body {
+    font-family: sans-serif;
+}
+
+.content {
+ display: flex;
+ align-items: center;
+ justify-items: center ;
+}
+
+#list {
+    display: flex;
+    flex-wrap: wrap;  
+}

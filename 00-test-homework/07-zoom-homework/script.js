@@ -89,12 +89,3 @@ console.log(getStudentsNames(students));
 console.log(getBestStudent(students));
 console.log(calculateWordLetters("тест"));
 
-function getStudentsNamess(students) {
-    let namesArray = [];
-    for (let i in students) {
-      namesArray.push(Object.values(students[i].name));
-    }
-
-    console.log(namesArray.sort());
-  }
-  console.log(getStudentsNamess(students));
