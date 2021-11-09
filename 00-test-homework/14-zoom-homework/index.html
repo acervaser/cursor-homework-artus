@@ -11,11 +11,17 @@
 </head>
 
 <body>
+    <button id="wookiee" class="wookiee">Translate into Wookiee </button>
+    <button id="english" class="wookiee">Translate into English </button>
+
     <input id= "input" type="text" placeholder="Star Wars films (from 1 to 6):">
     <button id="character" class="btn">Get People</button>
     <div class="content">
         <div id="list-of-characters"></div>
-        <button id="planets" class="btn">Star Wars Planets</button>
+        <button id="planet" class="btn">Star Wars Planets</button>
+        <h2>Page: <span id="page"></span></h2>
+        <button id="prev" class="btn">Prev page</button>
+        <button id="next" class="btn">Next page</button>
         <div id="list-of-planets"></div>
     </div>
     <script src="./script.js"></script>
