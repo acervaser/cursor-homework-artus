@@ -5,26 +5,42 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="stylesheet" href="./styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <title>Homework#14</title>
 </head>
 
 <body>
+    <div class="format">
     <button id="wookiee" class="wookiee">Translate into Wookiee </button>
     <button id="english" class="wookiee">Translate into English </button>
-
-    <input id= "input" type="text" placeholder="Star Wars films (from 1 to 6):">
-    <button id="character" class="btn">Get People</button>
-    <div class="content">
-        <div id="list-of-characters"></div>
-        <button id="planet" class="btn">Star Wars Planets</button>
-        <h2>Page: <span id="page"></span></h2>
-        <button id="prev" class="btn">Prev page</button>
-        <button id="next" class="btn">Next page</button>
-        <div id="list-of-planets"></div>
     </div>
+    <button id="planet" class="btn">Star Wars Planets</button>
+    <div id="list-of-planets">
+
+    </div>
+<div class = "navigation">
+    <button id="prev" class="btn">Prev page</button>
+     <span id="page"></span>
+    <button id="next" class="btn">Next page</button>   
+</div>
+<input id= "input" type="text" placeholder="Star Wars films (from 1 to 6):">
+<button id="character" class="btn">Get People</button>
+<div id="list-of-characters">
+
+</div>
+       
     <script src="./script.js"></script>
+    
+</body>
+
 </body>
 
 </html>

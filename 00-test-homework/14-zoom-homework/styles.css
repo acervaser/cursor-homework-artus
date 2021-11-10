@@ -1,14 +1,106 @@
+
 body {
-    font-family: sans-serif;
+    font-family: 'Titillium Web', sans-serif;
+    background: url("./assets/img/wp6119721-star-wars-retro-1920x1080-wallpapers.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;   
 }
-
-.content {
- display: flex;
- align-items: center;
- justify-items: center ;
-}
-
-#listOfCharacters {
+#list-of-characters{
     display: flex;
-    flex-wrap: wrap;  
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: center;
+}
+.format{
+    display:flex;
+}
+.information-character {
+    font-family: 'Titillium Web', sans-serif;
+    align-items: center;
+    justify-items: center;
+    width: 10%;
+    padding: 10px;
+    margin: 15px;
+    text-align: center;
+    background: -webkit-linear-gradient(135deg, rgb(211, 80, 86), rgb(34, 95, 162));
+    background: -moz-linear-gradient(135deg, rgb(211, 80, 86), rgb(34, 95, 162));
+    background: linear-gradient(135deg, rgb(211, 80, 86), rgb(34, 95, 162));
+    border-radius: 2em;
+}
+#list-of-planets {
+    font-family: 'Titillium Web', sans-serif;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: center;
+   
+}
+.planet {
+    font-family: 'Titillium Web', sans-serif;
+    background: -webkit-linear-gradient(135deg, rgb(208, 102, 124) 21%, rgb(35, 76, 206) 100%);
+    background: -moz-linear-gradient(135deg, rgb(208, 102, 124) 21%, rgb(35, 76, 206) 100%);
+    background: linear-gradient(135deg, rgb(208, 102, 124) 21%, rgb(35, 76, 206) 100%);
+    border-radius: 1em;
+    text-align: center;
+    padding: 5px;
+    margin: 10px;
+}
+
+#input {
+    font-family: 'Titillium Web', sans-serif;
+        display: flex;
+        width: 300px;
+        height: 75px;
+        text-align: center;
+        background: transparent;
+        border: 1px solid red;
+        color: white;
+        border-radius: 10px;
+        margin:25px 42%;
+       
+}
+::placeholder{
+    font-size: 20px;
+    color:rgb(3, 3, 3);
+}
+button{
+    font-family: 'Titillium Web', sans-serif;
+    margin:0 auto;
+    display: flex;
+    font-size: 16px;
+    padding: 10px 20px;
+    background: -webkit-linear-gradient(135deg, rgb(208, 102, 124) 21%, rgb(35, 76, 206) 100%);
+    background: -moz-linear-gradient(135deg, rgb(208, 102, 124) 21%, rgb(35, 76, 206) 100%);
+    background: linear-gradient(135deg, rgb(208, 102, 124) 21%, rgb(35, 76, 206) 100%);
+    color: white;
+    border-radius: 5px;
+    border:none;
+ 
+}
+span {
+    justify-content: center;
+    text-align: center;
+    margin:0 auto;
+    font-size: 16px;
+    padding: 7px 25px;
+    background: -webkit-linear-gradient(135deg, rgb(208, 102, 124) 21%, rgb(35, 76, 206) 100%);
+    background: -moz-linear-gradient(135deg, rgb(208, 102, 124) 21%, rgb(35, 76, 206) 100%);
+    background: linear-gradient(135deg, rgb(208, 102, 124) 21%, rgb(35, 76, 206) 100%);
+    color: white;
+    border-radius: 5px;
+   
+  
+  
+}
+
+
+
+.navigation {
+    display:flex;
+    width: 30%;
+    margin:0 auto;
+    align-items: center;
+    justify-items: center;
+    padding: 15px; 
 }

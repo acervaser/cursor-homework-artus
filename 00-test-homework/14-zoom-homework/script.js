@@ -6,10 +6,15 @@ const listOfPlanets = document.getElementById("list-of-planets")
 const getPlanetsBtn = document.getElementById("planet");
 const getnextBtn = document.getElementById("next");
 const getprevBtn = document.getElementById("prev");
+const page = document.getElementById("page")
 let currentPage = 1;
-const translateIntoWookiee = document.getElementById("wookiee");
-const translateIntoEnglish = document.getElementById("english");
-const formatWookie = ""
+const btnTranslateIntoWookiee = document.getElementById("wookiee");
+const btnTranslateIntoEnglish = document.getElementById("english");
+let formatWookie = false
+const TranslateIntoWookiee = () => formatWookie = true;
+const TranslateIntoEnglish = () => formatWookie = false;
+btnTranslateIntoWookiee.addEventListener('click', TranslateIntoWookiee);
+btnTranslateIntoEnglish.addEventListener('click', TranslateIntoEnglish);
 
 
 
@@ -21,31 +26,50 @@ const getPeople = () => {
         return
     }
     axios
-        .get(`${baseUrl}/films/${input.value}/${formatWookie}`)
+        .get(`${baseUrl}/films/${input.value}/`)
         .then((response) => {
             const listElems = response.data.characters;
             listOfCharacters.innerHTML = ''
             listElems.map((person) => {
-                getInfo(person)
+                if (!formatWookie) {
+                    getInfo(person)
+                } else {
+                    getInfoWookie(person)
+                }
+
             })
                 .catch((err) => {
                     console.log("Error:", err);
                     listOfCharacters.innerHTML = "Error occured :" + err.message;
                 });
         });
-}
-
-
-
+};
 function getInfo(person) {
     axios
         .get(person)
         .then((response) => {
             const info = `
-                    <div class="character">
+                    <div class="information-character">
                     <h3>${response.data.name}</h3>
-                    <p>${response.data.birth_year}</p>
-                    <p>${response.data.gender}</p>
+                    <p>Birth year: ${response.data.birth_year}</p>
+                    <p>Gender: ${response.data.rrwowhwaworc}</p>
+                    </div>`
+            listOfCharacters.innerHTML += info
+        })
+        .catch((err) => {
+            console.log("Error:", err);
+            listOfCharacters.innerHTML = "Error occured :" + err.message;
+        });
+}
+function getInfoWookie(person) {
+    axios
+        .get(`${person}?format=wookiee`)
+        .then((response) => {
+            const info = `
+                    <div class="information-character">
+                    <h3>${response.data.whrascwo}</h3>
+                    <p>rRhahrcaoac roworarc: ${response.data.rhahrcaoac_roworarc}</p>
+                    <p>Rrwowhwaworc: ${response.data.rrwowhwaworc}</p>
                     </div>`
             listOfCharacters.innerHTML += info
         })
@@ -54,8 +78,16 @@ function getInfo(person) {
             listOfCharacters.innerHTML = "Error occured :" + err.message;
         });
 };
+const getPlanets =() => {
+    if (!formatWookie) {
+        getPlanetsEnglish()
+    } else {
+        getPlanetsWookie()
+    }
+}
 
-const getPlanets = () => {
+const getPlanetsEnglish = () => {
+    page.innerHTML = currentPage;
     axios
         .get(`${baseUrl}/planets/?page=${currentPage}`)
         .then((response) => {
@@ -64,11 +96,10 @@ const getPlanets = () => {
             listOfPlanets.innerHTML = ""
             listElems.map((planet) => {
                 const planetInfo = `
-<div class="character">
-<h3>${planet.name}</h3>
-<p>${planet.orbital_period}</p>
-<p>${planet.population}</p>
-</div>`
+              <div class="planet">
+              <h3>${planet.name}</h3>
+              <p>Planet population: ${planet.population}</p>
+              <div/>`
                 listOfPlanets.innerHTML += planetInfo
             })
 
@@ -79,10 +110,49 @@ const getPlanets = () => {
             listOfCharacters.innerHTML = "Error occured :" + err.message;
         });
 
-}
+};
+const getPlanetsWookie = () => {
+    page.innerHTML = currentPage;
+    axios
+        .get(`${baseUrl}/planets/?page=${currentPage}`)
+        .then((response) => {
+            const listElems = response.data.results;
+            console.log(listElems)
+            listOfPlanets.innerHTML = ""
+            listElems.map((planetData) => {
+                getUrlList(planetData)
+            });
 
-getCharacterBtn.addEventListener('click', getPeople);
-getPlanetsBtn.addEventListener('click', getPlanets);
+        })
+        .catch((err) => {
+            console.log("Error:", err);
+            listOfCharacters.innerHTML = "Error occured :" + err.message;
+        });
+
+}
+function getUrlList(planetData) {
+    const urlList = planetData.map((info) => info.url)
+    urlList.map((url) => {
+        getUrlList(url)
+    });
+};
+function getUrlList(url) {
+    axios
+        .get(`${url}?format=wookiee`)
+        .then((response) => { 
+            const planetInfo = `
+            <div class="planet">
+            <h3>${response.whrascwo}</h3>
+            <p>Planet population: ${response.akooakhuanraaoahoowh}</p>
+            <div/>`
+              listOfPlanets.innerHTML += planetInfo
+          
+        })
+        .catch((err) => {
+            console.log("Error:", err);
+            listOfCharacters.innerHTML = "Error occured :" + err.message;
+        });
+};
 
 function getnextPage() {
     if (currentPage === 6) return;
@@ -101,3 +171,5 @@ function getprevPage() {
 
 getprevBtn.addEventListener('click', getprevPage);
 getnextBtn.addEventListener('click', getnextPage);
+getCharacterBtn.addEventListener('click', getPeople);
+getPlanetsBtn.addEventListener('click', getPlanets);
