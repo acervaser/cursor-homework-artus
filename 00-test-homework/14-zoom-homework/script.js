@@ -87,9 +87,10 @@ const getPlanets =() => {
 }
 
 const getPlanetsEnglish = () => {
+    listOfPlanets.innerHTML = "in the galaxy far far away...";
     page.innerHTML = currentPage;
     axios
-        .get(`${baseUrl}/planets/?page=${currentPage}`)
+        .get(`${baseUrl}/planets?page=${currentPage}`)
         .then((response) => {
             const listElems = response.data.results;
             console.log(listElems)
@@ -102,8 +103,6 @@ const getPlanetsEnglish = () => {
               <div/>`
                 listOfPlanets.innerHTML += planetInfo
             })
-
-
         })
         .catch((err) => {
             console.log("Error:", err);
@@ -112,15 +111,21 @@ const getPlanetsEnglish = () => {
 
 };
 const getPlanetsWookie = () => {
+    listOfPlanets.innerHTML = "in the galaxy far far away...";
     page.innerHTML = currentPage;
     axios
-        .get(`${baseUrl}/planets/?page=${currentPage}`)
+        .get(`${baseUrl}/planets?page=${currentPage}&format=wookiee`)
         .then((response) => {
-            const listElems = response.data.results;
-            console.log(listElems)
+            const listElems = response.data.rcwochuanaoc;
+            console.log(listElems);
             listOfPlanets.innerHTML = ""
-            listElems.map((planetData) => {
-                getUrlList(planetData)
+            listElems.map((planet) => {
+                const planetInfo = `
+                <div class="planet">
+                <h3>Whrascwo: ${planet.whrascwo}</h3>
+                <p>Akooakhuanraaoahoowh: ${planet.akooakhuanraaoahoowh}</p>
+                <div/>`
+                  listOfPlanets.innerHTML += planetInfo
             });
 
         })
@@ -130,29 +135,8 @@ const getPlanetsWookie = () => {
         });
 
 }
-function getUrlList(planetData) {
-    const urlList = planetData.map((info) => info.url)
-    urlList.map((url) => {
-        getUrlList(url)
-    });
-};
-function getUrlList(url) {
-    axios
-        .get(`${url}?format=wookiee`)
-        .then((response) => { 
-            const planetInfo = `
-            <div class="planet">
-            <h3>${response.whrascwo}</h3>
-            <p>Planet population: ${response.akooakhuanraaoahoowh}</p>
-            <div/>`
-              listOfPlanets.innerHTML += planetInfo
-          
-        })
-        .catch((err) => {
-            console.log("Error:", err);
-            listOfCharacters.innerHTML = "Error occured :" + err.message;
-        });
-};
+
+
 
 function getnextPage() {
     if (currentPage === 6) return;
