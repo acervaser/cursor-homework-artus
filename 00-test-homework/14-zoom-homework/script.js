@@ -92,7 +92,7 @@ const getPlanetsEnglish = () => {
     axios
         .get(`${baseUrl}/planets?page=${currentPage}`)
         .then((response) => {
-            const listElems = response.data.results;
+            const listElems = response.data;
             console.log(listElems)
             listOfPlanets.innerHTML = ""
             listElems.map((planet) => {
