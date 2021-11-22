@@ -1,25 +1,25 @@
 
-// import './App.css';
+ import './App.css';
 import React from "react";
 import UserInfo from "./components/UserInfo";
 import PostStatistics from "./components/PostStatistikcs";
-import Baby from "./assests/img/Baby.jpg"
+import Baby from "./assests/img/baby_yoda.jpg";
+import Yoda from "./assests/img/Yoda.jpg";
 
 
 
 
 
-const RAY_IMAGE = Baby;
 
 const userData = {
-    name: "Anakin skywalker",
-    photo: RAY_IMAGE,
-    nickname: "@dart_vader"
+    name: "Baby Yoda",
+    photo: Baby,
+    nickname: "@baby_yoda"
 };
 
 const postData = {
-    content: "WTF? Who is Ray? Why she is Skywalker? Luke...?",
-    image: RAY_IMAGE,
+    content: "My dear father, I miss you so much...",
+    image: Yoda,
     date: "26 feb"
 }
 
