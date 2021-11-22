@@ -4,12 +4,12 @@ import React from "react";
 
 const UserInfo = ({ name, image,nickname }) => {
     return(
-<div className="user_info">
-    <img className="user_image" srs={image} alt="user's photo" />
-    <div className="user_name">
+<div className="user-info">
+    <img className="user-image" srs={image} alt="user's photo" />
+    <div className="user-name">
       {name}  
     </div>
-    <a className="user_nickname" href="#">{nickname}</a>
+    <a className="user-nickname" href="#">{nickname}</a>
 </div>
     );
 };
