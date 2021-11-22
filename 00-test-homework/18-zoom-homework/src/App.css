@@ -82,9 +82,9 @@ body {
   color: rgb(126, 126, 126);
 }
 
-.statistics_comments,
-.statistics_shares,
-.statistics_likes,
-.statistics_save {
+.statistics-comments,
+.statistics-shares,
+.statistics-likes,
+.statistics-save {
   margin-left: 30px;
 }
