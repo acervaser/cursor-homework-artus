@@ -11,6 +11,7 @@ const userData = {
 
 const postData = {
     content: "WTF? Who is Ray? Why she is Skywalker? Luke...?",
-    image: { RAY_IMAGE }
+    image: RAY_IMAGE,
+    data: "26 feb" 
 }
 
