@@ -4,4 +4,87 @@ body {
   background-color: rgb(151, 147, 143);
   font-size: 28px;
 }
+.post {
+  width: 70%;
+  height: auto;
+  margin: 80px auto 0 auto;
+  padding: 30px;
+  background: rgb(21, 32, 43);
+  border-radius: 10px;
+}
+.wrapper {
+  width: 80%;
+  height: 90px;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 10% (30% 30% 30%);
+}
 
+.user-image{
+
+  position: relative;
+  top: -60px;
+  border-radius: 50%;
+  width: 100px;
+  grid-column-start: 0;
+  grid-column-end: 1;
+  grid-row-start: 0;
+  grid-row-end: 2;
+}
+
+.user-name {
+  position: relative;
+  top: -20px;
+  font-weight: bold;
+  padding: 3px;
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 0;
+  grid-row-end: 1;
+}
+.user-nickname {
+  margin-left: 30px;
+  text-decoration: none;
+  padding: 3px;
+  color: rgb(126, 126, 126);
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 0;
+  grid-row-end: 1;
+}
+.post-date {
+  padding: 3px;
+  color: rgb(126, 126, 126);
+  grid-column-start: 3;
+  grid-column-end: 4;
+  grid-row-start: 0;
+  grid-row-end: 1;
+}
+.post-content {
+  position: relative;
+  top: -20px;
+  padding: 3px;
+  grid-column-start: 1;
+  grid-column-end: 4;
+  grid-row-start: 1;
+  grid-row-end: 2;
+}
+
+.post-image {
+  width: 85%;
+  margin: 0 0 0 110px;
+  border-radius: 20px;
+}
+.statistics {
+  margin: 0 0 0 110px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  color: rgb(126, 126, 126);
+}
+
+.statistics_comments,
+.statistics_shares,
+.statistics_likes,
+.statistics_save {
+  margin-left: 30px;
+}

@@ -6,7 +6,9 @@ import PostStatistics from "./components/PostStatistikcs";
 import Baby from "./assests/img/baby_yoda.jpg";
 import Yoda from "./assests/img/Yoda.jpg";
 
+const ANAKIN_IMAGE = "https://upload.wikimedia.org/wikipedia/en/thumb/7/74/Anakin-Jedi.jpg/220px-Anakin-Jedi.jpg";
 
+const RAY_IMAGE = "https://specials-images.forbesimg.com/imageserve/5e63b3c8e1e617000759130e/960x0.jpg?fit=scale";
 
 
 
@@ -32,8 +34,8 @@ const App = ({ content, image, date }) => {
     return (
         <div className="post">
             <div className="wrapper">
-                <UserInfo name={userData.name} image={userData.photo} nickname={userData.nickname} />
-                <span className="post-data">{postData.date}</span>
+                <UserInfo name={userData.name} image={ANAKIN_IMAGE} nickname={userData.nickname} />
+                <span className="post-date">{postData.date}</span>
                 <span className="post-content">{postData.content}</span>
             </div>
 
