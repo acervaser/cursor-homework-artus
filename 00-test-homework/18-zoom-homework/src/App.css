@@ -3,7 +3,7 @@ body {
   color: white;
   background-color: rgb(151, 147, 143);
   font-size: 28px;
-}
+ }
 .post {
   width: 70%;
   height: auto;
@@ -87,4 +87,4 @@ body {
 .statistics-likes,
 .statistics-save {
   margin-left: 30px;
-}
+} 
