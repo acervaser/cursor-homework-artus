@@ -1,6 +1,6 @@
 import React from "react";
 
-const PostStatistics = ({comments, shares, likes}){
+const PostStatistics = ({comments, shares, likes}) => {
     return(
         <div className="statisticks">
         <span className="statistics-comments">{comments}</span>
