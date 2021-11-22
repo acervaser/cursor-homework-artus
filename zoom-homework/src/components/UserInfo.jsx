@@ -1,7 +1,5 @@
 import React from "react";
 
-
-
 const UserInfo = ({ name, image,nickname }) => {
     return(
 <div className="user-info">

@@ -10,4 +10,4 @@ const PostStatistics = ({comments, shares, likes}) => {
     );
 };
 
-export default UserStatistics;
+export default PostStatistics;
