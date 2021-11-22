@@ -3,15 +3,17 @@
 import React from "react";
 import UserInfo from "./components/UserInfo";
 import PostStatistics from "./components/PostStatistikcs";
+import Baby from "./assests/img/Baby.jpg"
 
 
-const ANAKIN_IMAGE = "https://upload.wikimedia.org/wikipedia/en/thumb/7/74/Anakin-Jedi.jpg/220px-Anakin-Jedi.jpg";
 
-const RAY_IMAGE = "https://specials-images.forbesimg.com/imageserve/5e63b3c8e1e617000759130e/960x0.jpg?fit=scale";
+
+
+const RAY_IMAGE = Baby;
 
 const userData = {
     name: "Anakin skywalker",
-    photo: ANAKIN_IMAGE,
+    photo: RAY_IMAGE,
     nickname: "@dart_vader"
 };
 
