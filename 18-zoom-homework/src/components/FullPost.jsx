@@ -1,5 +1,6 @@
 import React from "react";
 import UserInfo from "./UserInfo";
+import UserStatistics from "./PostStatistics";
 
 const ANAKIN_IMAGE = "https://upload.wikimedia.org/wikipedia/en/thumb/7/74/Anakin-Jedi.jpg/220px-Anakin-Jedi.jpg";
 
@@ -17,6 +18,11 @@ const postData = {
     data: "26 feb" 
 }
 
+const statisticsData ={
+    comments: 482,
+    shares: 146,
+    likes: 887,
+}
 const UserPost = ({ content, image, date }) => {
     return (
         <div className="post">
@@ -25,7 +31,8 @@ const UserPost = ({ content, image, date }) => {
                 <span className="content">{content}</span>
                 <img className="post-image" srs={image} alt="user's photo" />
             </div>
-            <img className=""
+            <img className="post-image" srs={postData.image} alt="Some post"/>
+<U
         </div>
     );
 };
