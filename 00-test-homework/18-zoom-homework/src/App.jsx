@@ -23,7 +23,7 @@ const postData = {
     content: "My dear father, I miss you so much...",
     image: YODA_IMAGE,
     date: "26 feb"
-}
+};
 
 const statisticsData = {
     comments: 482,
@@ -35,11 +35,11 @@ const App = () => {
         <div className="post">
             <div className="wrapper">
                 <UserInfo name={userData.name} image={userData.photo} nickname={userData.nickname} />
-                <span className="post-date">{postData.image}</span>
+                <span className="post-date">{postData.date}</span>
                 <span className="post-content">{postData.content}</span>
             </div>
 
-            <img className="post-image" srs={postData.image} alt="Some post" />
+            <img className="post-image" src={postData.image} alt="Some post" />
             <PostStatistics comments={statisticsData.comments} shares={statisticsData.shares} likes={statisticsData.likes} />
         </div>
     );

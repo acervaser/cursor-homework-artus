@@ -16,4 +16,14 @@ let promise = new Promise((resolve, reject) => { setInterval(() => {
 }
 getRandomChinese(4)
 
+const genders = {
+  female: true,
+  male: true,
+  unknown: true,
+};
 
+const dfdf = {
+  ... genders,
+  female: false
+}
+console.log( dfdf)

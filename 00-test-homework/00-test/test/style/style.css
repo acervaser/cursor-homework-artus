@@ -1,0 +1,21 @@
+img[title="Картинка"]{
+width: 150px;
+border: 4px double black;
+
+}
+img[title="images"]{
+width: 150px;
+border-color: red;
+}
+
+img[title="картина"]{
+width: 150px;
+border: dotted 7px red;
+}
+a[href="https://www.metrothegame.com/"]
+{color: green;
+	font-style: oblique;
+}
+a[ href="https://www.youtube.com"]{
+	font-family:Geneva, Arial, Helvetica, sans-serif; 
+}

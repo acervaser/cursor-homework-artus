@@ -3,7 +3,7 @@ import React from "react";
 const UserInfo = ({ name, image, nickname}) => {
     return(
 <>
-    <img className="user-image" srs={image} alt="user" />
+    <img className="user-image" src={image} alt="user" />
     <div className="user-name">
       {name}  
     </div>
